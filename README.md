@@ -8,15 +8,16 @@ Date, Time, Exercise, Duration and Calories are saved in their respective column
 
 ## Features
 
-- Create a new user account
-- implemented the GET, POST, PUT, DELETE
+- Create an input for the user workout.
+- implemented the POST
+- Integrated Google Sheets with Nutritionix API
+- Tracks Date, Time, Duration, Exercise, Calories
 
 ## Still needs to be implemented:
 - Fully functional GUI
 - Ability to add the input for caloric properties for Food
 - Ability to POST, PUT, DELETE directly from the GUI
 - Implement a way to see the Google Sheet in teh GUI
-- 
 ## Authors
 
 - [@sanduler](https://github.com/sanduler)
