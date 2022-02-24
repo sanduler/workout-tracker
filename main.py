@@ -2,10 +2,6 @@
 import os
 import requests
 
-# TODO: Create a "My Workouts" Google sheet that will be used to store all the information about the workouts.
-# TODO: Use the Nutrionix API for the natural language engine
-# TODO: GET the API key and access the request.
-
 APP_ID = os.environ["APP_ID"]
 API_KEY = os.environ["API_KEY"]
 USER_WEIGHT = 185
@@ -46,7 +42,7 @@ body = {
     "age": USER_AGE,
 }
 
-response = requests.post(exercise_endpoint, params=body, headers=headers)
+response = requests.post(exercise_endpoint, json=body, headers=headers)
 response.raise_for_status()
 data = response.json()
 print(data)
