@@ -9,6 +9,7 @@ from datetime import datetime
 # the api keys and id
 APP_ID = os.environ["APP_ID"]
 API_KEY = os.environ["API_KEY"]
+SHEETY_TOKEN = os.environ["SHEETY_TOKEN"]
 # user information
 # weight measured in pounds
 USER_WEIGHT = 185
@@ -68,6 +69,9 @@ sheety_endpoint = "https://api.sheety.co/4e12ce3dfb8293152e16533fafb5bf29/myWork
 now = datetime.now()
 today_date = now.strftime("%d/%m/%Y")
 current_time = now.strftime("%H:%M:%S")
+sheetly_header = {
+    "Authorization": SHEETY_TOKEN,
+}
 # use a for loop to add the existing and requested exersises to the Google Sheets
 for exercise in workout_data["exercises"]:
     parameters = {
@@ -79,7 +83,8 @@ for exercise in workout_data["exercises"]:
           "calories": exercise["nf_calories"],
         }
     }
+
     # get the response for the POST
-    response = requests.post(sheety_endpoint, json=parameters)
+    response = requests.post(sheety_endpoint, json=parameters, headers=sheetly_header)
     # raise a status in case of an error
     response.raise_for_status()
